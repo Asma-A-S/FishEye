@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye - photographe </title>
+  </head>
+  <body class="portfolio-page">
+    <header>
+      <img src="assets/images/logo.png" class="logo" />
+    </header>
+    <main id="main">
+      <div class="photograph-header">
+        <div class="photograph-header-infos"></div>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photograph-header-photo"></div>
+      </div>
+    </main>
+    <div id="contact_modal">
+			<div class="modal">
+				<header>
+          <h2 class ="form-title">Contactez-moi</h2><br>
+          <img src="assets/icons/close.svg" onclick="closeModal()" />
+        </header>
+				<form >
+					<div>
+						<label for="first">Prénom</label>
+            <input class="text-control" type="text" id="first" name="first">
+          </div>
+          <div class="formData" data-error="" data-error-visible="">
+            <label for="last">Nom</label>
+            <input class="text-control" type="text" id="last" name="last" >
+          </div>
+          <div class="formData" data-error="" data-error-visible="">
+            <label for="email">E-mail</label>
+            <input class="text-control" type="email" id="email" name="email">
+          </div>
+          <div class="formData" data-error="" data-error-visible="">
+            <label for="message">Votre message</label>
+            <textarea class="text-control" type="text" id="message" name="form-message"></textarea><br>
+          </div>
+          <input class="contact_button" type="submit" value="Envoyer">
+          <!--<button class="contact_button">Envoyer</button>-->
+				</form>
+			</div>
+		</div>
+
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-container">
+          <div class="lightbox-close">
+              <button class="lightbox-btn">
+                  <img src="assets/icons/closeVector.png" onclick="closeModal()">
+              </button>
+          </div>
+          <div class="lightbox-previous">
+              <button class="lightbox-btn" >
+                  <img src="assets/icons/rightArrow.png" onclick="portfolio.prevMedia()">
+              </button>
+          </div>
+          <div class="lightbox-next">
+              <button class="lightbox-btn" >
+                  <img src="assets/icons/leftArrow.png" onclick="portfolio.nextMedia()">
+              </button>
+          </div>
+          <div class="lightbox-content">
+            <img class="lightbox-media lightbox-image" src="" style="display: none">
+            <video class="lightbox-media lightbox-video" src="" controls style="display: none"></video>
+            <p class="lightbox-title">test</p>
+          </div>
+        </div>
+    </div>
+    <!--lightbox
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-container">
+        <div class="lightbox-close">
+          <button class="lightbox-btn">
+            <img src="assets/icons/closeVector.png" onclick="closeModal()">
+          </button>
+        </div>
+        <div class="lightbox-previous">
+          <button class="lightbox-btn">
+            <img src="assets/icons/rightArrow.png">
+          </button>
+        </div>
+        <div class="lightbox-next">
+          <button class="lightbox-btn">
+            <img src="assets/icons/leftArrow.png">
+          </button>
+        </div>
+      </div>
+    </div>-->
+    <!--models-->
+    <script src="scripts/models/PhotographerClass.js"></script>
+    <script src="scripts/models/MediaModel.js"></script>
+
+    <!--Template-->
+    <script src="scripts/templates/photographerTemplate.js"></script>
+    <script src="scripts/templates/mediaTemplate.js"></script>
+    
+    <!--Api-->
+    <script src="scripts/api/Api.js"></script>
+
+    <!--factory-->
+    <script src="scripts/factory/mediaFactory.js"></script>
+    <!--app-->
+    <script src="/scripts/pages/photographer.js"></script>
+    <!--gestion du formulaire-->
+    <script src="/scripts/utils/contactForm.js"></script>
+  </body>
+</html>
