@@ -1,0 +1,187 @@
+@import url("/css/photographer.css");
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0 auto;
+    max-width: 1240px;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+.index-page header{
+    margin-left: 80px;
+}
+main{
+    width: 100%;
+}
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+    font-size: 36px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+.photographer-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 310px;
+    width: 200px;
+}
+.index-page .photographer-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.portfolio-page .photographer-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 25px;
+}
+
+.portfolio-page .profile-picture{
+    margin-right: 25px;
+}
+.photographer-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-picture{
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+.photographer-name{
+    color: #D3573C;
+    font-size: 36px;
+    line-height: 46.87px;
+    text-wrap: nowrap;
+    margin: 0;
+}
+.photographer-location{
+    font-size: 13px;
+    color: #901C1C;
+    margin: 0;
+}
+.photographer-tagline{
+    font-size: 10px;
+    line-height: 13.02px;
+    color: #000000;
+    margin: 0;
+}
+.photographer-price{
+    font-size: 9px;
+    line-height: 11.72px;
+    color: #757575;
+}
+.portfolio-page .photographer-price{
+    color: #000000;
+    font-size: 24px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+}
+/*.photographer_section article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 310px;
+    width: 200px;
+    position: relative;
+}
+.photographer_section article a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.profile-picture-container {
+    position: relative;
+    width: 100%; /* ajustez la taille du conteneur selon vos besoins */
+    /*height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+/* ajustez la taille du conteneur selon vos besoins */
+ /* }
+.profile-picture{
+    width: 99%;
+    height: 99%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    object-fit: fill
+}
+.masque{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; 
+    mask: radial-gradient(circle closest-side at 50% 30%, transparent 90%, white 100%);   
+}
+.profile-infos{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    margin-top: auto;
+}
+.photographer-infos{
+    margin: 0;
+    font-weight: 400;
+}
+.photographer_section article h2 {
+    color: #D3573C;
+    font-size: 36px;
+    line-height: 46.87px;
+    text-wrap: nowrap;
+}
+.photographer-city{
+    font-size: 13px;
+    color: #901C1C;
+}
+.photographer-tagline{
+    font-size: 10px;
+    line-height: 13.02px;
+    color: #000000;
+}
+.photographer-price{
+    font-size: 9px;
+    line-height: 11.72px;
+    color: #757575;
+}
+*/
