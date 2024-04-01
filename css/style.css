@@ -75,6 +75,8 @@ h1 {
     height: 200px;
     border-radius: 50%;
     margin-bottom: 30px;
+    object-fit: cover;
+    overflow-clip-margin: unset;
 }
 .photographer-name{
     color: #D3573C;
@@ -99,13 +101,18 @@ h1 {
     line-height: 11.72px;
     color: #757575;
 }
-.portfolio-page .photographer-price{
+.photograph-likes-price{
+    background-color: #DB8876;
+    width: 376px;
+    height: 50px;
     color: #000000;
     font-size: 24px;
     position: fixed;
-    bottom: 30px;
+    bottom: 0px;
     right: 30px;
-
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
 }
 /*.photographer_section article {
     justify-self: center;

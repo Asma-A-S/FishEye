@@ -30,6 +30,7 @@
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+    overflow-clip-margin: unset;
 }
 .gallery-card a {
     text-decoration: none;
@@ -63,7 +64,7 @@
 .likes-icon{
     font-weight: 400;
     font-size: 1.3rem;
-    color: #901C1C;
+    color: black;
     animation: bounce 1.3s linear;
     font-weight: 900;
 }
