@@ -1,3 +1,4 @@
+import { likesPrice } from "../utils/likesPrice.js"
 class Portfolio {
     constructor(){
         // Initialisation des éléments DOM et autres propriétés
@@ -21,10 +22,13 @@ class Portfolio {
             try {
                 // Récupération des données du photographe depuis l'API
                 const photographerData = await this.photographersApi.getPhotographerById(photographerId);
+                const mediaData = await this.photographersApi.getMediaByPhotographerId(photographerId)
                 // Affichage des informations du photographe
-                this.displayPhotographerInfo(photographerData);
+                this.displayPhotographerHeader(photographerData);
+                
                 // Affichage de la galerie de médias
-                await this.displayMediaGallery(photographerId);
+                await this.displayMediaGallery(mediaData);
+                likesPrice(photographerData, mediaData)
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -33,18 +37,17 @@ class Portfolio {
         }
     }
 
-    async displayMediaGallery(photographerId) {
+    async displayMediaGallery(mediaData) {
         try {
             // Récupération des médias du photographe depuis l'API
-            const mediaData = await this.photographersApi.getMediaByPhotographerId(photographerId);
             
             // Création de la galerie de médias
             const mediaContainer = document.createElement('div');
             mediaContainer.classList.add('media-gallery');
-
             // Parcours des médias pour affichage et stockage dans le tableau
             mediaData.forEach((media, index) => {
-                console.log('photoId', photographerId)
+                
+
                 let mediaElement;
                 if (media.image) {
                     mediaElement = imageTemplate(new MediaFactory(media, 'image'));
@@ -55,15 +58,16 @@ class Portfolio {
                 }
                 
                 // Ajout d'écouteur d'événements pour l'ouverture de la lightbox
-                mediaElement.addEventListener('click', () => {
+                /*mediaElement.addEventListener('click', () => {
                     this.openLightbox(media.id);
-                    console.log('media', media)
-                });
+                });*/
                 // Ajout du média au conteneur
                 mediaContainer.appendChild(mediaElement);
+                
                 // Stockage des informations sur le média dans le tableau
                 this.mediaArray.push({
                     // chemin vers l'image
+                    video: media.video,
                     image: media.image,
                     title: media.title,
                     photographerId: media.photographerId,
@@ -71,7 +75,7 @@ class Portfolio {
                     id: media.id
                 });
             });
-    
+            
             // Ajout du conteneur de médias à la page
             this.$main.appendChild(mediaContainer);
         } catch (error) {
@@ -79,18 +83,17 @@ class Portfolio {
         }
     }
     
-    async displayPhotographerInfo(photographerData) {
+    async displayPhotographerHeader(photographerData) {
         // Affichage des informations sur le photographe
         const photographer = new Photographer(photographerData);
         const template = new PhotographerTemplate(photographer);
-        const {profileInfos, profilePicture, photographerPrice } = template.getUserCardDOM();
+        const {profileInfos, profilePicture } = template.getUserCardDOM();
     
         this.$photographeHeaderInfos.appendChild(profileInfos)
         this.$photographeHeaderPicture.appendChild(profilePicture)
-        this.$main.appendChild(photographerPrice)
-    
         // Affichage du nom du photographe sur la modal formulaire
         this.displayPhotographerName(photographerData.name);
+        // affichage encart prix et likes
     }
     
     async displayPhotographerName(photographerName) {
@@ -99,26 +102,20 @@ class Portfolio {
         $formTitle.innerHTML =`Contactez-moi <br> ${photographerName}`;
     }
     async openLightbox(mediaId) {
-        console.log('lightbox media', mediaId);
         // Afficher la lightbox
         this.$lightbox.style.display = "block";
        
         //this.currentIndex = index;
         const mediaIndex = this.mediaArray.findIndex(media => media.id === mediaId)
         
-        console.log('mediaaffiche', mediaId)
-        console.log('this.currentIndex', this.currentIndex)
-        console.log('mediaIndex', mediaIndex)
         if (mediaIndex !== -1) {
             const media = this.mediaArray[mediaIndex];
-            console.log('media test', media);
             // Afficher la lightbox
             this.$lightbox.style.display = "block";
             this.$lightboxTitle.innerHTML = `${media.title}`
             this.currentIndex = mediaIndex;
         // Afficher l'image ou la vidéo en fonction du type de média
         if (media.image) {
-            console.log('oui')
             this.$lightboxImage.src = `/assets/media/${media.photographerId}/${media.image}`;
             this.$lightboxImage.style.display = "block";
             this.$lightboxVideo.style.display = "none";
@@ -137,7 +134,7 @@ class Portfolio {
         this.$lightboxVideo.pause();
     }*/
     nextMedia(){
-        console.log('mediaArray', this.mediaArray)
+    
         // Incrémenter l'index
         this.currentIndex++;
         // Vérifier si l'index dépasse la longueur de l'array  
