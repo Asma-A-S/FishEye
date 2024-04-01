@@ -18,6 +18,23 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="photograph-header-photo"></div>
       </div>
+      <!--filtre-->
+      <div id="trier">
+        <label class="trier-texte" for="select-trier">Trier par </label>
+        <select id="select-trier" onchange="trier(this)">
+            <option>Popularité</option>
+            <option>Date</option>
+            <option>Titre</option>
+        </select>
+      </div>
+      <!--encart likes prix-->
+      <div class="photograph-likes-price">
+        <div class="photograph-like">
+          <span class="photograph-likes"></span>
+          <i class="fas fa-heart likes-icon" aria-hidden="true"></i>
+        </div>
+        <span class="photograph-price"></span>
+      </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -72,26 +89,7 @@
           </div>
         </div>
     </div>
-    <!--lightbox
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-container">
-        <div class="lightbox-close">
-          <button class="lightbox-btn">
-            <img src="assets/icons/closeVector.png" onclick="closeModal()">
-          </button>
-        </div>
-        <div class="lightbox-previous">
-          <button class="lightbox-btn">
-            <img src="assets/icons/rightArrow.png">
-          </button>
-        </div>
-        <div class="lightbox-next">
-          <button class="lightbox-btn">
-            <img src="assets/icons/leftArrow.png">
-          </button>
-        </div>
-      </div>
-    </div>-->
+  
     <!--models-->
     <script src="scripts/models/PhotographerClass.js"></script>
     <script src="scripts/models/MediaModel.js"></script>
@@ -106,8 +104,9 @@
     <!--factory-->
     <script src="scripts/factory/mediaFactory.js"></script>
     <!--app-->
-    <script src="/scripts/pages/photographer.js"></script>
-    <!--gestion du formulaire-->
+    <script type="module" src="/scripts/pages/photographer.js"></script>
+    <!--utils-->
     <script src="/scripts/utils/contactForm.js"></script>
+
   </body>
 </html>
