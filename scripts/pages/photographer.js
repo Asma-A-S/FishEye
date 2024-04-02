@@ -7,6 +7,7 @@ class Portfolio {
         this.$photographerHeaderInfos = document.querySelector('.photograph-header-infos');
         this.$photographerHeaderPicture = document.querySelector('.photograph-header-photo');
         this.$main = document.querySelector('#main');
+        this.$mediaGallery = document.querySelector('.media-gallery');
         this.$lightbox = document.getElementById('lightbox');
         this.$lightboxImage = document.querySelector(".lightbox-image");
         this.$lightboxVideo = document.querySelector(".lightbox-video");
@@ -75,8 +76,7 @@ class Portfolio {
 displayMediaGallery(mediaData) {
     try {
         // Création de la galerie de médias
-        const mediaContainer = document.createElement('div');
-        mediaContainer.classList.add('media-gallery');
+        let mediaContainer = this.$mediaGallery
         mediaContainer.innerHTML = "";
         // Parcours des médias pour affichage et stockage dans le tableau
         mediaData.forEach((media, index) => {
@@ -166,6 +166,7 @@ async openLightbox(index) {
     async sortSelect(mediaData) {
         const select = document.querySelector(".select-trier");
         console.log("media select", mediaData);
+
         select.addEventListener("change", (e) => {
             let container = document.querySelector(".media-gallery")
             console.log("container", container);
@@ -193,12 +194,9 @@ async openLightbox(index) {
                     // Aucune action spécifique si l'option n'est pas sélectionnée
                     break;
             }
-            
             console.log("mediaSorted: " + mediaSorted)
-            
             // Affichage de la galerie de médias après le tri
             this.displayMediaGallery(mediaSorted);
-    
             // Mettre à jour les likes après le tri
           //  likesPrice(photographerData, this.mediaArray);
         })
