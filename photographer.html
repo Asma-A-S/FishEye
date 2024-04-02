@@ -21,7 +21,7 @@
       <!--filtre-->
       <div id="trier">
         <label class="trier-texte" for="select-trier">Trier par </label>
-        <select id="select-trier" onchange="trier(this)">
+        <select class="select-trier">
             <option>Popularité</option>
             <option>Date</option>
             <option>Titre</option>
@@ -74,12 +74,12 @@
           </div>
           <div class="lightbox-previous">
               <button class="lightbox-btn" >
-                  <img src="assets/icons/rightArrow.png" onclick="portfolio.prevMedia()">
+                  <img src="assets/icons/rightArrow.png">
               </button>
           </div>
           <div class="lightbox-next">
               <button class="lightbox-btn" >
-                  <img src="assets/icons/leftArrow.png" onclick="portfolio.nextMedia()">
+                  <img src="assets/icons/leftArrow.png">
               </button>
           </div>
           <div class="lightbox-content">
@@ -107,6 +107,7 @@
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <!--utils-->
     <script src="/scripts/utils/contactForm.js"></script>
+
 
   </body>
 </html>
