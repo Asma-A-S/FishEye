@@ -2,7 +2,7 @@ function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
     const lightbox = document.getElementById("lightbox");
-    lightbox
+    lightbox.style.display = "none";
 }
 
 function closeModal() {
