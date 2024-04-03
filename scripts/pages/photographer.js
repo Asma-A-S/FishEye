@@ -20,6 +20,14 @@ class Portfolio {
         
         this.$lightboxPrev.addEventListener('click', () => this.prevMedia());
         this.$lightboxNext.addEventListener('click', () => this.nextMedia());
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.prevMedia();
+            } else if (e.key === 'ArrowRight') {
+                this.nextMedia();
+            }
+        });
     }
 
     async main() {

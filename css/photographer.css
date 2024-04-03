@@ -208,3 +208,16 @@ form textarea{
     display: flex;
     justify-content: center;
 }
+
+/*select*/
+.select-trier{
+    background-color: #901C1C;
+  border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  height: 60px;
+  padding: 0 5px;
+  width: 150px;
+}
