@@ -48,6 +48,7 @@
     font-weight: 400;
 }
 .card-likes{
+    color: #901C1C;
     width: 50px;
     display: flex;
     flex-direction: row;
@@ -64,9 +65,12 @@
 .likes-icon{
     font-weight: 400;
     font-size: 1.3rem;
-    color: black;
+    color: #901C1C;
     animation: bounce 1.3s linear;
     font-weight: 900;
+}
+.likes-encart{
+    color: black;
 }
 .contact_button {
     font-size: 20px;
@@ -194,7 +198,9 @@ form textarea{
     cursor: pointer;
     font-size: inherit;
 }
-.lightbox.content{
+.lightbox-content{
+    width: 80%;
+    height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,13 +208,22 @@ form textarea{
 }
 .lightbox-media{
     width: 100%;
-    height: 900px;
+    height: 100%;
+    object-fit: cover;
+    
 }
 .lightbox-container{
     display: flex;
     justify-content: center;
 }
-
+.lightbox-title{
+    font-weight: 400;
+    font-size: 24px;
+    color: #901C1C;
+    position: absolute;
+    bottom: 8px;
+    left: 130px;
+}
 /*select*/
 .select-trier{
     background-color: #901C1C;
