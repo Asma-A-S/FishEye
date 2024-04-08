@@ -122,6 +122,7 @@ h1 {
     right: 30px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border-radius: 5px;
 }
 /*.photographer_section article {
@@ -202,3 +203,82 @@ h1 {
     color: #757575;
 }
 */
+
+/*.dropbtn {
+    width: 10.625rem;
+    height: 4rem;
+    background-color: #901c1c;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 3rem
+}
+
+.dropbtn.show {
+    border-radius: 0.25rem 0.25rem 0 0
+}
+
+.btn.btn-danger.dropdown-toggle.dropbtn.show .dropdown-arrow {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.dropdown-menu {
+    margin-top: -4px !important;
+    background-color: #901c1c
+}
+
+.dropdown-menu .show {
+    border-top-right-radius: 0.25rem !important;
+    border-top-left-radius: 0.25rem !important
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 1.5rem;
+    width: 1rem;
+    height: 3rem;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out
+}
+
+.dropdown-toggle::after {
+    content: none
+}
+
+.hide {
+    display: none !important
+}
+
+.sort-title {
+    font-size: 1.125rem;
+    font-weight: 700
+}
+
+.sort-button {
+    width: 10.625rem;
+    width: 100%;
+    height: 4rem;
+    border-radius: 0;
+    background-color: #901c1c;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none
+}
+
+.sort-by-button-group li:last-child button {
+    border-bottom-right-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important
+}
+
+.sort-name {
+    display: block;
+    border-top: 0.1rem solid white;
+    line-height: 4rem
+}*/
