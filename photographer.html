@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,24 +10,43 @@
   </head>
   <body class="portfolio-page">
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt ="logo de FichEyes" />
     </header>
     <main id="main">
-      <div class="photograph-header">
+      <section class="photograph-header" aria-describedby="Informations concernants le photographe">
         <div class="photograph-header-infos"></div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          <button class="contact_button" onclick="displayModal()" aria-label="Contactez-moi">Contactez-moi</button>
         <div class="photograph-header-photo"></div>
-      </div>
-      <!--filtre-->
-      <div id="trier">
-        <label class="trier-texte" for="select-trier">Trier par </label>
-        <select class="select-trier">
-            <option>Popularité</option>
-            <option>Date</option>
-            <option>Titre</option>
-        </select>
-      </div>
-      <section class="media-gallery"></section>
+      </section>
+     <!--tri-->
+  <div class="dropdown-section">
+    <span id="sort-title" class="sort-title">Trier par</span>
+    <div class="dropdown">
+      <button class="button dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="sort-dropdown">
+          <span id="dropdown-title">Popularité</span>
+          <img src="assets/icons/downArrow.png" alt="" class="dropdown-arrow" aria-hidden="true">
+      </button>
+      <ul id="sort-dropdown" class="sort-by-button-group" aria-labelledby="sort-title" style="display: none;">
+        <li>
+          <button id="sort-by-popularity" class="sort-button hide is-checked" data-sort-value="popularity" >
+            <span class="sort-name">Popularité</span>
+          </button>
+        </li>
+        <li>
+          <button id="sort-by-date" class="sort-button " data-sort-value="date">
+            <span class="sort-name">Date</span>
+          </button>
+        </li>
+        <li>
+          <button id="sort-by-name" class="sort-button" data-sort-value="title">
+            <span class="sort-name">Titre</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+      
+      <section class="media-gallery" aria-label="gallerie du photographe"></section>
       <!--encart likes prix-->
       <div class="photograph-likes-price">
         <div class="photograph-like">
@@ -37,11 +56,11 @@
         <span class="photograph-price"></span>
       </div>
     </main>
-    <div id="contact_modal" role="dialog" aria-label="Formulaire de contact">
+    <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
 			<div class="modal">
 				<header>
-          <h2 class ="form-title">Contactez-moi</h2><br>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 class ="form-title" aria-label="En-tête du formulaire contactez-moi">Contactez-moi</h2><br>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
         </header>
 				<form >
 					<div>
@@ -61,7 +80,6 @@
             <textarea class="text-control" type="text" id="message" name="form-message"></textarea><br>
           </div>
           <input class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
-          <!--<button class="contact_button">Envoyer</button>-->
 				</form>
 			</div>
 		</div>
@@ -70,23 +88,23 @@
       <div class="lightbox-container">
           <div class="lightbox-close">
               <button class="lightbox-btn">
-                  <img src="assets/icons/closeVector.png" onclick="closeModal()">
+                  <img src="assets/icons/closeVector.png" onclick="closeModal()" aria-label="Fermer la fenêtre">
               </button>
           </div>
           <div class="lightbox-previous">
               <button class="lightbox-btn" >
-                  <img src="assets/icons/rightArrow.png">
+                  <img src="assets/icons/rightArrow.png" alt="flèche pour passer à l'image suivante">
               </button>
           </div>
           <div class="lightbox-next">
               <button class="lightbox-btn" >
-                  <img src="assets/icons/leftArrow.png">
+                  <img src="assets/icons/leftArrow.png" alt="flèche pour passer à l'image précédente">
               </button>
           </div>
           <div class="lightbox-content">
             <img class="lightbox-media lightbox-image" src="" style="display: none">
             <video class="lightbox-media lightbox-video" src="" controls style="display: none"></video>
-            <p class="lightbox-title">test</p>
+            <p class="lightbox-title"></p>
           </div>
         </div>
     </div>

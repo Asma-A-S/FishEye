@@ -1,49 +1,56 @@
-export function likesPrice(photographerData, mediaData) {
-    const likes = document.querySelector(".photograph-likes");
-    const price = document.querySelector(".photograph-price");
-    let likesButton = document.querySelectorAll(".like-button");
-    let likedMediaIds = new Set();
+/**
+ * Met à jour les informations sur les likes et le prix du photographe.
+ * @param {Object[]} mediaData -
+ * Les données des médias.
+ * @param {number} mediaData[].id -
+ * L'identifiant unique du média.
+ * @param {number} mediaData[].likes -
+ * Le nombre de likes du média.
+ * @param {HTMLElement[]} mediaData[].cardLikes -
+ *  Les éléments HTML pour afficher le nombre de like sur chaque carte.
+ * @param {HTMLElement[]} mediaData[].likeButtons -
+ * Les boutons de like pour chaque média.
+ * @param {Set<number>} likedMediaIds -
+ * Ensemble contenant les identifiants des médias déjà likés.
+ */
+export function likesPrice(mediaData) {
+  const likes = document.querySelector('.photograph-likes');
+  const likesButton = document.querySelectorAll('.like-button');
+  const likedMediaIds = new Set();
 
-    likesButton.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            // Vérifie si le média a déjà été liké
-            const mediaId = mediaData[index].id;
-            if (likedMediaIds.has(mediaId)) {
-                // Si le média a déjà été liké, ne faites rien
-                return;
-            }
+  // Mise à jours de l'affichage des likes
+  function updateLikesDisplay() {
+    const totalLikes = mediaData.reduce(
+      (accumulator, media) => accumulator + media.likes,
+      0
+    );
+    likes.textContent = totalLikes;
 
-            // Incrémente le nombre de likes du média
-            mediaData[index].likes += 1;
-            // Met à jour le nombre de likes affiché sur la carte
-            const cardLikes = document.querySelectorAll(".card-nbr-like");
-            cardLikes[index].textContent = mediaData[index].likes;
-
-            // Met à jour le nombre total de likes
-            const updatedTotalLikes = mediaData.reduce(
-                (accumulator, media) => accumulator + media.likes,
-                0);
-            likes.textContent = updatedTotalLikes;
-
-            // Ajoute l'ID du média à l'ensemble des médias likés
-            likedMediaIds.add(mediaId);
-
-            // Désactive le bouton de like
-            button.disabled = true;
-            // Facultatif : changez l'apparence du bouton pour indiquer qu'il a été liké
-            button.classList.add('liked');
-        });
+    // Mise à jour de l'affichage des likes pour chaque carte
+    const cardLikes = document.querySelectorAll('.card-nbr-like');
+    cardLikes.forEach((cardLike, index) => {
+      cardLike.textContent = mediaData[index].likes;
     });
+  }
 
-    // Vérification si mediaData est un tableau
-    if (Array.isArray(mediaData)) {
-        const allLikes = mediaData.map(el => el.likes);
-        const initialLike = 0;
-        const totalLikes = allLikes.reduce(
-            (accumulator, currentLike) => accumulator + currentLike,
-            initialLike);
-        likes.innerHTML = `${totalLikes}`;
-    }
+  // Gérer l'évenement click bouton like
+  likesButton.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      const mediaId = mediaData[index].id;
+      if (likedMediaIds.has(mediaId)) {
+        mediaData[index].likes -= 1;
+        likedMediaIds.delete(mediaId);
+        button.classList.remove('liked');
+      } else {
+        mediaData[index].likes += 1;
+        likedMediaIds.add(mediaId);
+        button.classList.add('liked');
+      }
+      // Mise à jour de l'affichage des likes après chaque clic
+      updateLikesDisplay();
+    });
+  });
 
-    price.innerHTML = `${photographerData.price}€ /jour`;
+  // Initialiser l'affichage des likes au chargement de la page
+  updateLikesDisplay();
 }
