@@ -1,103 +1,126 @@
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
-    const lightbox = document.getElementById("lightbox");
-    lightbox.style.display = "none";
+  const modal = document.getElementById('contact_modal');
+  modal.style.display = 'block';
+  const lightbox = document.getElementById('lightbox');
+  lightbox.style.display = 'none';
+  modal.focus();
+  document.addEventListener('keydown', closeModalOnEscape);
 }
 
+function closeModalOnEscape(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+}
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-    const lightbox = document.getElementById("lightbox");
-    lightbox.style.display = "none";
+  const modal = document.getElementById('contact_modal');
+  modal.style.display = 'none';
+  const lightbox = document.getElementById('lightbox');
+  lightbox.style.display = 'none';
+  document.removeEventListener('keydown', closeModalOnEscape);
 }
+const form = document.getElementById('contact_form');
 
-//récupérer les données du formulaires
-let firstName = document.getElementById("first");
-console.log("prenom", firstName)
-let lastName = document.getElementById("last");
-let email = document.getElementById("email");
-let message = document.getElementById("message");
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-function errorMessage(champ, message) {
-    let formData = champ.closest(".formData");
-    if (formData) {
-      formData.setAttribute("data-error", message);
-      if (message) {
-        formData.setAttribute("data-error-visible", "true");
-      } else {
-        formData.removeAttribute("data-error-visible");
-      }
+  // Récupérer les valeurs des champs du formulaire
+  const firstName = document.getElementById('first').value.trim();
+  const lastName = document.getElementById('last').value.trim();
+  const email = document.getElementById('email');
+  const message = document.getElementById('message').value.trim();
+
+  // Réinitialiser les styles des champs et les messages d'erreur
+  resetForm();
+
+  // Vérifier les champs et afficher les messages d'erreur si nécessaire
+  firstNameValid(firstName);
+  lastNameValid(lastName);
+  emailValid(email);
+  messageValid(message);
+
+  // Si le formulaire est valide, vous pouvez envoyer les données
+  if (isValidForm(firstName, lastName, email, message)) {
+    console.log('Formulaire valide. Envoi des données...');
+    console.log(
+      'Prenom : ' +
+        firstName +
+        ', Nom : ' +
+        lastName +
+        ', Email : ' +
+        email.value +
+        ', Message : ' +
+        message
+    );
+    form.reset();
+    closeModal();
+    // Ajoutez ici le code pour envoyer les données à votre serveur
+  } else {
+    console.log('Le formulaire contient des erreurs. Veuillez corriger.');
+  }
+});
+
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    // Vérifier si le formulaire est en cours de soumission
+    if (document.activeElement.tagName.toLowerCase() !== 'input') {
+      // Si le formulaire n'a pas le focus sur un champ de saisie, soumettre le formulaire
+      document.getElementById('contact_form').submit();
     }
   }
+});
+function resetForm() {
+  document.querySelectorAll('.text-control').forEach((input) => {
+    input.classList.remove('invalid-input');
+    input.placeholder = ''; // Supprime les placeholders d'erreur
+  });
 
+  document.querySelectorAll('.error-message').forEach((error) => {
+    error.style.display = 'none';
+  });
+}
+
+function displayErrorMessage(fieldId, errorMessage) {
+  const field = document.getElementById(fieldId);
+  field.classList.add('invalid-input');
+  field.placeholder = errorMessage;
+}
 
 function firstNameValid(firstName) {
-    let value = firstName.value.trim();
-    if (value.length < 2) {
-      errorMessage(
-        firstName,
-        "Le prénom doit avoir au moins deux caractères"
-      );
-      return false
-    } else {
-      errorMessage(firstName, "");
-      return true
-    }
+  if (firstName.length < 2) {
+    displayErrorMessage(
+      'first',
+      'Le prénom doit contenir au moins 2 caractères.'
+    );
   }
+}
 
-  function lastNameValid(lastName) {
-    let value = lastName.value.trim();
-    if (value.length < 2) {
-      errorMessage(lastName, "Le nom doit avoir au moins deux caractères");
-      return false;
-    } else {
-      errorMessage(lastName, "");
-      return true;
-    }
+function lastNameValid(lastName) {
+  if (lastName.length < 2) {
+    displayErrorMessage('last', 'Le nom doit contenir au moins 2 caractères.');
   }
+}
 
-  function emailValid(email) {
-    if (!email.checkValidity() || email.value === "") {
-      //utiliser checkValidity fonction intégrée pour valider l'email
-      errorMessage(email, "EMAIL NON VALID");
-      return false;
-    } else {
-      errorMessage(email, "");
-      return true;
-    }
+function emailValid(email) {
+  if (!email.checkValidity() || email.value === '') {
+    displayErrorMessage('email', 'Veuillez saisir une adresse e-mail valide.');
   }
+}
 
-  function messageValid(message) {
-    if (message === ""){
-        errorMessage(message, "EMAIL NON VALID");
-      return false;
-    } else {
-        errorMessage(email, "");
-        return true;
-      }
+function messageValid(message) {
+  if (message.length < 2) {
+    displayErrorMessage(
+      'message',
+      'Le message doit contenir au moins 2 caractères.'
+    );
   }
+}
 
-  function validationForm(){
-    let isValid = true
-    isValid &= firstNameValid(firstName);
-    isValid &= lastNameValid(lastName);
-    isValid &= emailValid(email);
-    isValid &= messageValid(message);
-    return isValid;
-  }
-let form = document.querySelector("form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    try{
-      if(validationForm()){
-        console.log('prénom', firstName.value)
-        console.log('nom', lastName.value)
-        console.log('email', email.value)
-        console.log('message', message.value)
-      }
-  } catch (erreur) {
-   // Afficher l'erreur dans la console
-      errorMessage(erreur.champ, erreur.message); // Afficher le message d'erreur sous le champ concerné
-    }; 
-  });
+function isValidForm(firstName, lastName, email, message) {
+  return (
+    firstName.length >= 2 &&
+    lastName.length >= 2 &&
+    email.checkValidity() &&
+    message.length >= 2
+  );
+}

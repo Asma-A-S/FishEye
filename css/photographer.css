@@ -165,6 +165,17 @@ form textarea{
     border-radius: 5px;
     border: none;
 }
+.invalid-input {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: black;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+
 .lightbox{
     width: 1240px;
     height: 975px;

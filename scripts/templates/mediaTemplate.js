@@ -1,9 +1,9 @@
-function imageTemplate (media){
-    const {_title, _image, _photographerId, _likes} = media
-    const article = document.createElement('article')
-    article.classList.add("gallery-card")
-    const card = `
-        <img class="card-media" src="assets/media/${_photographerId}/${_image}"/>
+function imageTemplate(media) {
+  const {_title, _image, _photographerId, _likes} = media;
+  const article = document.createElement('article');
+  article.classList.add('gallery-card');
+  const card = `
+        <img class="card-media" src="assets/media/${_photographerId}/${_image}" alt = ""/>
         <div class="card-footer">
             <p class="card-title">${_title}</p>
             <div class="card-likes">
@@ -13,17 +13,16 @@ function imageTemplate (media){
                 </button>
             </div>
         </div>
-    `
-    article.innerHTML = card
-    return article
+    `;
+  article.innerHTML = card;
+  return article;
 }
-function videoTemplate (media){
-    const article = document.createElement('article')
-    article.classList.add("gallery-card")
-    const card = 
-    `<a href="/assets/media/${media._photographerId}/${media._video}" target="_blank">
-    <video controls class= "card-media">
-        <source src="/assets/media/${media._photographerId}/${media._video}" type="video/mp4">
+function videoTemplate(media) {
+  const article = document.createElement('article');
+  article.classList.add('gallery-card');
+  const card = `<a href="/assets/media/${media._photographerId}/${media._video}" target="_blank">
+  <video controls class= "card-media">
+      <source src="/assets/media/${media._photographerId}/${media._video}" type="video/mp4" alt = "">
     </video>
     <div class="card-footer">
         <p class="card-title">${media._title}</p>
@@ -34,7 +33,7 @@ function videoTemplate (media){
             </button>
         </div>
     </div>
-</a>`
-    article.innerHTML = card
-    return article
+</a>`;
+  article.innerHTML = card;
+  return article;
 }

@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-google": "^0.14.0",
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "dev": "http-server",
+    "lint": "eslint scripts/**/*.js",
+    "format": "prettier --write \"**/*.js\""
+  }
+}

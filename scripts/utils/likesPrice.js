@@ -2,6 +2,7 @@
  * Met à jour les informations sur les likes et le prix du photographe.
  * @param {Object[]} mediaData -
  * Les données des médias.
+
  * @param {number} mediaData[].id -
  * L'identifiant unique du média.
  * @param {number} mediaData[].likes -

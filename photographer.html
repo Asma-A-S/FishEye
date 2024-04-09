@@ -56,7 +56,7 @@
         <span class="photograph-price"></span>
       </div>
     </main>
-    <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
+    <!--<div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
 			<div class="modal">
 				<header>
           <h2 class ="form-title" aria-label="En-tête du formulaire contactez-moi">Contactez-moi</h2><br>
@@ -65,24 +65,56 @@
 				<form >
 					<div>
 						<label for="first">Prénom</label>
-            <input class="text-control" type="text" id="first" name="first">
+            <input class="text-control" type="text" id="first" name="first" required>
           </div>
           <div class="formData" data-error="" data-error-visible="">
             <label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" >
+            <input class="text-control" type="text" id="last" name="last" required>
           </div>
           <div class="formData" data-error="" data-error-visible="">
             <label for="email">E-mail</label>
-            <input class="text-control" type="email" id="email" name="email">
+            <input class="text-control" type="email" id="email" name="email" required>
           </div>
           <div class="formData" data-error="" data-error-visible="">
             <label for="message">Votre message</label>
-            <textarea class="text-control" type="text" id="message" name="form-message"></textarea><br>
+            <textarea class="text-control" type="text" id="message" name="form-message" required></textarea><br>
           </div>
           <input class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
 				</form>
 			</div>
 		</div>
+  -->
+  <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
+    <div class="modal">
+        <header>
+            <h2 class ="form-title" aria-label="En-tête du formulaire contactez-moi">Contactez-moi</h2><br>
+            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
+        </header>
+        <form id="contact_form">
+            <div class="formData" data-error="" data-error-visible="">
+                <label for="first">Prénom</label>
+                <input class="text-control" type="text" id="first" name="first">
+                <div class="error-message" id="first-error"></div>
+            </div>
+            <div class="formData" data-error="" data-error-visible="">
+                <label for="last">Nom</label>
+                <input class="text-control" type="text" id="last" name="last">
+                <div class="error-message" id="last-error"></div>
+            </div>
+            <div class="formData" data-error="" data-error-visible="">
+                <label for="email">E-mail</label>
+                <input class="text-control" type="email" id="email" name="email">
+                <div class="error-message" id="email-error"></div>
+            </div>
+            <div class="formData" data-error="" data-error-visible="">
+                <label for="message">Votre message</label>
+                <textarea class="text-control" type="text" id="message" name="form-message"></textarea>
+                <div class="error-message" id="message-error"></div>
+            </div>
+            <input class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
+        </form>
+    </div>
+</div>
 
     <div class="lightbox" id="lightbox">
       <div class="lightbox-container">
