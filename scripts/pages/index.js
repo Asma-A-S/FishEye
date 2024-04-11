@@ -1,9 +1,9 @@
 class App {
   constructor() {
     this.$photographersSection = document.querySelector(
-        '.photographer_section',
+      '.photographer_section'
     );
-    this.photographersApi = new photographersApi('/data/photographers.json');
+    this.photographersApi = new photographersApi('data/photographers.json');
   }
 
   async main() {
@@ -18,7 +18,7 @@ class App {
     photographers.forEach((photographerData) => {
       const photographer = new Photographer(photographerData);
       const template = new PhotographerTemplate(photographer);
-      const {profileLink, photographerPrice} = template.getUserCardDOM();
+      const { profileLink, photographerPrice } = template.getUserCardDOM();
       profileLink.appendChild(photographerPrice);
       this.$photographersSection.appendChild(profileLink);
     });
