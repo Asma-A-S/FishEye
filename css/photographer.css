@@ -86,6 +86,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 /*affichage formulaire par dessus le reste*/
 #contact_modal{
@@ -103,13 +104,14 @@
 .modal {
     border-radius: 5px;
     width: 90%;
-    height: 90%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     margin: auto;
     padding: 35px;
+    
 }
 
 .modal header {
@@ -137,6 +139,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 30px;
 }
 
 form label {
