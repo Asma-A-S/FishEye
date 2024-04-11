@@ -4,11 +4,7 @@ class Api {
   }
   async get() {
     try {
-      const response = await fetch(this._url, {
-        method: 'GET',
-        mode: 'cors', // Spécification du mode cors
-      });
-      //const response = await fetch(this._url);
+      const response = await fetch(this._url);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
