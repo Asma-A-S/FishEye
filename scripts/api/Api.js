@@ -4,7 +4,11 @@ class Api {
   }
   async get() {
     try {
-      const response = await fetch(this._url);
+      const response = await fetch(this._url, {
+        method: 'GET',
+        mode: 'cors', // Spécification du mode cors
+      });
+      //const response = await fetch(this._url);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -44,7 +48,7 @@ class photographersApi extends Api {
   async getPhotographerById(id) {
     const photographersData = await this.get();
     const photographer = photographersData.find(
-        (photographer) => photographer.id.toString() === id,
+      (photographer) => photographer.id.toString() === id
     );
     if (!photographer) {
       throw new Error(`Photographer with ID ${id} not found.`);
