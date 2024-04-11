@@ -63,9 +63,13 @@ form.addEventListener('submit', function (event) {
 window.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     // Vérifier si le formulaire est en cours de soumission
-    if (document.activeElement.tagName.toLowerCase() !== 'input') {
+    /*if (document.activeElement.tagName.toLowerCase() !== 'input') {
       // Si le formulaire n'a pas le focus sur un champ de saisie, soumettre le formulaire
       document.getElementById('contact_form').submit();
+    }*/
+    if (!form.checkValidity()) {
+      // Si le formulaire n'est pas valide, soumettre le formulaire
+      form.submit();
     }
   }
 });
