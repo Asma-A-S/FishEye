@@ -1,5 +1,5 @@
 function imageTemplate(media) {
-  const {_title, _image, _photographerId, _likes} = media;
+  const { _title, _image, _photographerId, _likes } = media;
   const article = document.createElement('article');
   article.classList.add('gallery-card');
   const card = `
@@ -20,9 +20,9 @@ function imageTemplate(media) {
 function videoTemplate(media) {
   const article = document.createElement('article');
   article.classList.add('gallery-card');
-  const card = `<a href="/assets/media/${media._photographerId}/${media._video}" target="_blank">
+  const card = `<a href="assets/media/${media._photographerId}/${media._video}" target="_blank">
   <video controls class= "card-media">
-      <source src="/assets/media/${media._photographerId}/${media._video}" type="video/mp4" alt = "">
+      <source src="assets/media/${media._photographerId}/${media._video}" type="video/mp4" alt = "">
     </video>
     <div class="card-footer">
         <p class="card-title">${media._title}</p>
