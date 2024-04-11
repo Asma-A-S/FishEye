@@ -143,11 +143,11 @@ class Portfolio {
       this.$lightboxTitle.innerHTML = `${media.title}`;
       // Afficher l'image ou la vidéo en fonction du type de média
       if (media.image) {
-        this.$lightboxImage.src = `/assets/media/${media.photographerId}/${media.image}`;
+        this.$lightboxImage.src = `assets/media/${media.photographerId}/${media.image}`;
         this.$lightboxImage.style.display = 'block';
         this.$lightboxVideo.style.display = 'none';
       } else if (media.video) {
-        this.$lightboxVideo.src = `/assets/media/${media.photographerId}/${media.video}`;
+        this.$lightboxVideo.src = `assets/media/${media.photographerId}/${media.video}`;
         this.$lightboxVideo.style.display = 'block';
         this.$lightboxImage.style.display = 'none';
       } else {
