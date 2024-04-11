@@ -20,7 +20,7 @@ class Portfolio {
     this.$lightboxPrev = document.querySelector('.lightbox-previous');
     this.mediaArray = []; // Tableau pour stocker les informations sur les médias
     this.currentIndex = 0;
-    this.photographersApi = new photographersApi('/data/photographers.json');
+    this.photographersApi = new photographersApi('data/photographers.json');
 
     this.$lightboxPrev.addEventListener('click', () => this.prevMedia());
     this.$lightboxNext.addEventListener('click', () => this.nextMedia());
