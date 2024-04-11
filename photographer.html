@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -10,14 +10,14 @@
   </head>
   <body class="portfolio-page">
     <header>
-      <img src="assets/images/logo.png" class="logo" alt ="logo de FichEyes" />
+      <img src="assets/images/logo.png" class="logo" alt ="logo de FichEyes">
     </header>
     <main id="main">
-      <section class="photograph-header" aria-describedby="Informations concernants le photographe">
+      <div class="photograph-header">
         <div class="photograph-header-infos"></div>
           <button class="contact_button" onclick="displayModal()" aria-label="Contactez-moi">Contactez-moi</button>
         <div class="photograph-header-photo"></div>
-      </section>
+      </div>
      <!--tri-->
   <div class="dropdown-section">
     <span id="sort-title" class="sort-title">Trier par</span>
@@ -56,39 +56,11 @@
         <span class="photograph-price"></span>
       </div>
     </main>
-    <!--<div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
-			<div class="modal">
-				<header>
-          <h2 class ="form-title" aria-label="En-tête du formulaire contactez-moi">Contactez-moi</h2><br>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
-        </header>
-				<form >
-					<div>
-						<label for="first">Prénom</label>
-            <input class="text-control" type="text" id="first" name="first" required>
-          </div>
-          <div class="formData" data-error="" data-error-visible="">
-            <label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" required>
-          </div>
-          <div class="formData" data-error="" data-error-visible="">
-            <label for="email">E-mail</label>
-            <input class="text-control" type="email" id="email" name="email" required>
-          </div>
-          <div class="formData" data-error="" data-error-visible="">
-            <label for="message">Votre message</label>
-            <textarea class="text-control" type="text" id="message" name="form-message" required></textarea><br>
-          </div>
-          <input class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
-				</form>
-			</div>
-		</div>
-  -->
   <div id="contact_modal" role="dialog" aria-label="Formulaire de contact" aria-modal="true">
     <div class="modal">
         <header>
             <h2 class ="form-title" aria-label="En-tête du formulaire contactez-moi">Contactez-moi</h2><br>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
+            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire">
         </header>
         <form id="contact_form">
             <div class="formData">
@@ -108,7 +80,7 @@
             </div>
             <div class="formData">
                 <label for="message">Votre message</label>
-                <textarea class="text-control" type="text" id="message" name="form-message"></textarea>
+                <textarea class="text-control" id="message" name="form-message"></textarea>
                 <div class="error-message" id="message-error"></div>
             </div>
             <input class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
@@ -120,7 +92,7 @@
       <div class="lightbox-container">
           <div class="lightbox-close">
               <button class="lightbox-btn">
-                  <img src="assets/icons/closeVector.png" onclick="closeModal()" aria-label="Fermer la fenêtre">
+                  <img src="assets/icons/closeVector.png" onclick="closeModal()" aria-label="Fermer la fenêtre" alt="Fermer la fenêtre">
               </button>
           </div>
           <div class="lightbox-previous">
@@ -134,8 +106,8 @@
               </button>
           </div>
           <div class="lightbox-content">
-            <img class="lightbox-media lightbox-image" src="" style="display: none">
-            <video class="lightbox-media lightbox-video" src="" controls style="display: none"></video>
+            <img class="lightbox-media lightbox-image" src="assets\favicon.png" style="display: none" alt="image issue de la gallerie du photographe">
+            <video class="lightbox-media lightbox-video" src="assets\favicon.png" controls style="display: none"></video>
             <p class="lightbox-title"></p>
           </div>
         </div>
